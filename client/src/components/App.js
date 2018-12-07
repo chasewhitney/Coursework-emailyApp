@@ -5,6 +5,7 @@ import * as actions from '../actions';
 
 import Header from './Header';
 const Landing = () => <h2>Landing</h2>;
+const Dashboard = () => <h2>Dashboard</h2>;
 
 class App extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class App extends Component {
           <div>
             <Header />
             <Route path="/" exact component={Landing} />
+            <Route path="/surveys" component={Dashboard} />
           </div>
         </BrowserRouter>
       </div>
