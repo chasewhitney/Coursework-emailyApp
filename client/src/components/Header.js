@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import StripeCheckout from './Payments';
+
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -14,11 +16,14 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
+        return [
+          <li>
+            <StripeCheckout />
+          </li>,
           <li>
             <a href="/api/logout">Logout</a>
-          </li>
-        );
+          </li>,
+        ];
     }
   }
   render() {
@@ -31,9 +36,7 @@ class Header extends Component {
           >
             Emaily
           </Link>
-          <ul className="right">
-            <li>{this.renderContent()}</li>
-          </ul>
+          <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>
     );
